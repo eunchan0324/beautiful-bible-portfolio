@@ -1,0 +1,25 @@
+HELP.md
+.gradle/
+build/
+!**/src/main/**/build/
+!**/src/test/**/build/
+
+*.class
+*.jar
+*.war
+*.ear
+!gradle/wrapper/gradle-wrapper.jar
+
+### IntelliJ IDEA ###
+.idea/
+*.iws
+*.iml
+*.ipr
+out/
+!**/src/main/**/out/
+!**/src/test/**/out/
+
+### VS Code ###
+.vscode/
+
+application-local.yaml

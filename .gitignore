@@ -1,0 +1,33 @@
+# dependencies
+node_modules/
+
+# frontend build output
+bb-bible-frontend/.next/
+bb-bible-frontend/out/
+bb-bible-frontend/public/sw.js
+bb-bible-frontend/public/workbox-*.js
+
+# backend build output
+bb-bible-backend/build/
+bb-bible-backend/.gradle/
+
+# environment
+.env
+.env.*
+!.env.example
+
+# copyrighted or externally licensed Bible data
+bb-bible-frontend/public/bible.json
+bb-bible-frontend/public/bible-*.json
+bb-bible-frontend/public/*bible*.json
+bb-bible-backend/src/main/resources/data/bible.json
+bb-bible-backend/src/main/resources/data/*bible*.json
+
+# editor / OS
+.idea/
+.vscode/
+.DS_Store
+Thumbs.db
+
+# AI local settings
+.claude/

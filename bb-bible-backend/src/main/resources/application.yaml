@@ -1,0 +1,69 @@
+spring:
+  application:
+    name: bb-bible-backend
+  datasource:
+    url: ${DB_URL:jdbc:postgresql://localhost:5432/bb_bible}
+    username: ${DB_USERNAME:bb_bible}
+    password: ${DB_PASSWORD}
+    driver-class-name: org.postgresql.Driver
+    hikari:
+      maximum-pool-size: ${DB_MAX_POOL_SIZE:5}
+      minimum-idle: ${DB_MIN_IDLE:1}
+  jpa:
+    database-platform: org.hibernate.dialect.PostgreSQLDialect
+    hibernate:
+      ddl-auto: none
+    show-sql: true
+    properties:
+      hibernate:
+        format_sql: true
+
+supabase:
+  jwks-url: ${SUPABASE_JWKS_URL:https://project-ref.supabase.co/auth/v1/.well-known/jwks.json}
+  jwt-issuer: ${SUPABASE_JWT_ISSUER:https://project-ref.supabase.co/auth/v1}
+
+cors:
+  allowed-origins: ${CORS_ALLOWED_ORIGINS:http://localhost:3000}
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health
+  endpoint:
+    health:
+      show-details: never
+
+rate-limit:
+  capacity: ${RATE_LIMIT_CAPACITY:60}
+  refill-tokens: ${RATE_LIMIT_REFILL_TOKENS:60}
+  refill-duration-seconds: ${RATE_LIMIT_REFILL_DURATION_SECONDS:60}
+
+web-push:
+  public-key: ${WEB_PUSH_PUBLIC_KEY:}
+  private-key: ${WEB_PUSH_PRIVATE_KEY:}
+  subject: ${WEB_PUSH_SUBJECT:}
+
+push:
+  scheduler:
+    secret: ${PUSH_SCHEDULER_SECRET:}
+
+ai:
+  chapter-summary:
+    enabled: ${AI_CHAPTER_SUMMARY_ENABLED:false}
+    provider: ${AI_CHAPTER_SUMMARY_PROVIDER:groq}
+    generation-provider: ${AI_CHAPTER_SUMMARY_GENERATION_PROVIDER:${AI_CHAPTER_SUMMARY_PROVIDER:groq}}
+    review-provider: ${AI_CHAPTER_SUMMARY_REVIEW_PROVIDER:${AI_CHAPTER_SUMMARY_PROVIDER:groq}}
+    model: ${AI_CHAPTER_SUMMARY_MODEL:${GROQ_MODEL:llama-3.3-70b-versatile}}
+    api-key: ${AI_CHAPTER_SUMMARY_API_KEY:${GROQ_API_KEY:}}
+    base-url: ${AI_CHAPTER_SUMMARY_BASE_URL:https://api.groq.com/openai/v1}
+    reasoning-effort: ${AI_CHAPTER_SUMMARY_REASONING_EFFORT:low}
+    text-verbosity: ${AI_CHAPTER_SUMMARY_TEXT_VERBOSITY:low}
+    review-model: ${AI_CHAPTER_SUMMARY_REVIEW_MODEL:${GROQ_MODEL:llama-3.3-70b-versatile}}
+    review-api-key: ${AI_CHAPTER_SUMMARY_REVIEW_API_KEY:${GROQ_API_KEY:}}
+    review-base-url: ${AI_CHAPTER_SUMMARY_REVIEW_BASE_URL:https://api.groq.com/openai/v1}
+    max-attempts: ${AI_CHAPTER_SUMMARY_MAX_ATTEMPTS:2}
+    auto-targets-enabled: ${AI_CHAPTER_SUMMARY_AUTO_TARGETS_ENABLED:false}
+    target-limit: ${AI_CHAPTER_SUMMARY_TARGET_LIMIT:5}
+    request-delay-millis: ${AI_CHAPTER_SUMMARY_REQUEST_DELAY_MILLIS:0}
+    targets: ${AI_CHAPTER_SUMMARY_TARGETS:}

@@ -1,0 +1,87 @@
+@import "tailwindcss";
+
+:root {
+  --background: #ffffff;
+  --foreground: #171717;
+  
+  /* BB Design System */
+  --bg-primary: #F0EEE7;
+  --text-primary: #414141;
+  --text-secondary: #343434;
+  --icon-active: #8D8881;
+  --icon-inactive: #D2CFC8;
+  --border-color: #D2CFC8;
+  
+  /* Breadcrumb Colors */
+  --breadcrumb-active: #55524F;
+  --breadcrumb-inactive: #D2CFC8;
+  --breadcrumb-bar-active: #8D8881;
+  
+  /* Dropdown Colors */
+  --dropdown-bg: rgba(255, 255, 255, 0.8);
+  --dropdown-old-testament: #3F74AB;
+  --dropdown-new-testament: #8C4643;
+  --dropdown-icon: #414141;
+  --dropdown-active-text: #414141;
+  --dropdown-divider: rgba(217, 217, 217, 0.8);
+  
+  /* Book Button Colors */
+  --book-button-bg: #FFFFFF;
+  --book-button-circle-old: #CCE5FF;
+  --book-button-circle-new: #FFD8D6;
+  --book-button-circle-text: #414141;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #0a0a0a;
+    --foreground: #ededed;
+  }
+}
+
+html, body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: Arial, Helvetica, sans-serif;
+  overscroll-behavior: none;
+  -webkit-overflow-scrolling: touch;
+}
+
+/* PWA Safe Area 처리 */
+.safe-area-top {
+  padding-top: env(safe-area-inset-top);
+}
+
+.safe-area-bottom {
+  padding-bottom: env(safe-area-inset-bottom);
+}
+
+.safe-area-full {
+  padding-top: env(safe-area-inset-top);
+  padding-bottom: env(safe-area-inset-bottom);
+  padding-left: env(safe-area-inset-left);
+  padding-right: env(safe-area-inset-right);
+}
+
+/* PWA 설치 프롬프트 애니메이션 */
+@keyframes slide-up {
+  from {
+    transform: translateY(100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.animate-slide-up {
+  animation: slide-up 0.3s ease-out;
+}
